@@ -65,4 +65,10 @@ public class CalculatorTest {
 		assertEquals(15, Calculator.add("1,2,3,4\n5,1002"));
 
 	}
+
+	@Test
+	public void testDelimiter() throws Exception
+	{
+		assertEquals(3, Calculator.add("//;\n1;2"));
+	}
 }
