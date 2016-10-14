@@ -32,11 +32,13 @@ public class Calculator
     {
  	    int total = 0;
         for(String number : numbers){
-        	if(Integer.parseInt(number) < 0)
+        	int numberInt = Integer.parseInt(number);
+        	if(numberInt < 0)
         	{
         		throw new Exception("Negatives not allowed: " + negativeNumbers(numbers));
         	}
-		    total += toInt(number);
+        	if(numberInt <= 1000)
+		    	total += toInt(number);
 		}
 		return total;
     }

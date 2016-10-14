@@ -47,7 +47,8 @@ public class CalculatorTest {
 	}
 
 	@Test
-	public void testNegatives() throws Exception{
+	public void testNegatives() throws Exception
+	{
 		try
 		{
 			assertEquals(0, Calculator.add("1,-2"));
@@ -56,5 +57,12 @@ public class CalculatorTest {
 		{
 			assertEquals("Negatives not allowed: -2", e.getMessage());
 		}
+	}
+
+	@Test
+	public void testBigNumbers() throws Exception
+	{
+		assertEquals(15, Calculator.add("1,2,3,4\n5,1002"));
+
 	}
 }
