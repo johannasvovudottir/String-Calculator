@@ -11,38 +11,50 @@ public class CalculatorTest {
     }
 
 	@Test
-	public void testEmptyString() 
+	public void testEmptyString() throws Exception 
 	{
 		assertEquals(0, Calculator.add(""));
 	}
 
 	@Test
-	public void testOneNumber() 
+	public void testOneNumber() throws Exception
 	{
 		assertEquals(1, Calculator.add("1"));
 	}
 
 	@Test
-	public void testTwoNumbers()
+	public void testTwoNumbers() throws Exception
 	{
 		assertEquals(3, Calculator.add("1,2"));
 	}
 
 	@Test
-	public void testMultipleNumbers()
+	public void testMultipleNumbers() throws Exception
 	{
 		assertEquals(6, Calculator.add("1,2,3"));
 	}
 
 	@Test
-	public void testManyMultipleNumbers()
+	public void testManyMultipleNumbers() throws Exception
 	{
 		assertEquals(21, Calculator.add("1,2,3,4,5,6"));
 	}
 
 	@Test
-	public void testNewLine()
+	public void testNewLine() throws Exception
 	{
 		assertEquals(15, Calculator.add("1,2,3,4\n5"));
+	}
+
+	@Test
+	public void testNegatives() throws Exception{
+		try
+		{
+			assertEquals(0, Calculator.add("1,-2"));
+		}
+		catch (Exception e) 
+		{
+			assertEquals("Negatives not allowed: -2", e.getMessage());
+		}
 	}
 }
